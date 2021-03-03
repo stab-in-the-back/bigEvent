@@ -18,10 +18,15 @@ $.ajaxPrefilter(function (positions) {
 
     // 控制用户访问权限 全局挂载complete
     positions.complete = function (res) {
-        console.log(res);
+        // console.log(res);
         if (res.responseJSON.status === 1 && res.responseJSON.message == '身份认证失败！') {
             localStorage.removeItem('token')
             location.href = '/login.html'
         }
     }
 })
+
+// 屏蔽enter事件
+document.onkeydown = function (e) {
+    if (e.keyCode == 13) return false
+}

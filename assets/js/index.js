@@ -28,7 +28,7 @@ function getUserInfo() {
         url: "/my/userinfo",
 
         success: function (res) {
-            console.log(res);
+            // console.log(res);
             if (res.status !== 0) return layui.layer.msg(res.message)
 
             layui.layer.msg(res.message)
@@ -43,7 +43,7 @@ function renderAvatar(user) {
     let name = user.nickname || user.username
     $('.welcome').html('欢迎 &nbsp&nbsp' + name)
     if (user.user_pic == null) {
-        $('.nav-img2').html(user.username[0]).show()
+        $('.nav-img2').html(name[0]).show()
         $('.layui-nav-img').hide()
     } else {
         $('.nav-img2').hide()
